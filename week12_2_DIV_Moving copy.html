@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIV Moving Control</title>
+    <style>
+        #box {
+            background-color: lightgray;
+            color: gray;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            left: 300px;
+            top: 300px;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            let box = document.getElementById('box');
+
+            function moveLeft() {
+                let box = document.getElementById('box');
+                let boxTop = parseInt(getComputedStyle(box).getPropertyValue("top"));
+                let boxLeft = parseInt(getComputedStyle(box).getPropertyValue("left"));
+                box.style.left = (boxLeft - 10) + 'px';
+                box.innerHTML = `${boxTop}px, ${boxLeft}px`;
+            }
+
+            function moveRight() {
+                let box = document.getElementById('box');
+                let boxTop = parseInt(getComputedStyle(box).getPropertyValue("top"));
+                let boxLeft = parseInt(getComputedStyle(box).getPropertyValue("left"));
+                box.style.left = (boxLeft + 10) + 'px';
+                box.innerHTML = `${boxTop}px, ${boxLeft}px`;
+            }
+
+            function moveUp() {
+                let box = document.getElementById('box');
+                let boxTop = parseInt(getComputedStyle(box).getPropertyValue("top"));
+                let boxLeft = parseInt(getComputedStyle(box).getPropertyValue("left"));
+                box.style.top = (boxTop - 10) + 'px';
+                box.innerHTML = `${boxTop}px, ${boxLeft}px`;
+            }
+
+            function moveDown() {
+                let box = document.getElementById('box');
+                let boxTop = parseInt(getComputedStyle(box).getPropertyValue("top"));
+                let boxLeft = parseInt(getComputedStyle(box).getPropertyValue("left"));
+                box.style.top = (boxTop + 10) + 'px';
+                box.innerHTML = `${boxTop}px, ${boxLeft}px`;
+            }
+
+            document.getElementById('L').addEventListener('click', moveLeft);
+            document.getElementById('R').addEventListener('click', moveRight);
+            document.getElementById('U').addEventListener('click', moveUp);
+            document.getElementById('D').addEventListener('click', moveDown);
+            document.getElementById('UL').addEventListener('click', moveUp);
+            document.getElementById('UL').addEventListener('click', moveLeft);
+            document.getElementById('UR').addEventListener('click', moveUp);
+            document.getElementById('UR').addEventListener('click', moveRight);
+            document.getElementById('DL').addEventListener('click', moveDown);
+            document.getElementById('DL').addEventListener('click', moveLeft);
+            document.getElementById('DR').addEventListener('click', moveDown);
+            document.getElementById('DR').addEventListener('click', moveRight);
+
+            // window.addEventListener("keydown", (e) => console.log(e))
+            function useKey(e) {
+                if (e.key == 'ArrowUp')
+                    moveUp();
+                else if (e.key == 'ArrowDown')
+                    moveDown();
+                else if (e.key == 'ArrowLeft')
+                    moveLeft();
+                else if (e.key == 'ArrowRight')
+                    moveRight();
+            }
+            window.addEventListener("keydown", (e) => useKey(e));
+        }
+    </script>
+</head>
+
+<body>
+    <h1>DIV Moving Control</h1>
+    <hr>
+    <p>
+        <button id='UL'>🡤</button>
+        <button id='U'>🡡</button>
+        <button id='UR'>🡥</button><br>
+        <button id='L'>🡠</button> &nbsp;&nbsp;&nbsp;&nbsp;
+        <button id='R'>🡢</button><br>
+        <button id='DL'>🡧</button>
+        <button id='D'>🡣</button>
+        <button id='DR'>🡦</button>
+    </p>
+    <hr>
+    <div id='box'><b>BOX</b></div>
+</body>
+
+</html>

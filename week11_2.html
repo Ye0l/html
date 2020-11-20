@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인라인 이벤트 모델</title>
+    <style>
+        h2 {
+            border: 3px solid gray;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 onmousedown="this.innerHTML='문서객체모델 프로그래밍';" onmouseup="this.innerHTML='DOM Programming';">DOM Programming</h1>
+    <hr>
+    <h2 onmouseover="this.style.borderColor='blue';" onmouseout="this.style.borderColor='gray';">동의과학대학교</h2>
+    <h2 onmouseover="this.style.backgroundColor='green';" onmouseout="this.style.backgroundColor='white';">컴퓨터정보과</h2>
+    <!-- over<->out, enter<->leave -->
+</body>
+
+</html>

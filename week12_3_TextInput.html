@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        
+        th {
+            background-color: lightgray;
+        }
+        
+        th,
+        td {
+            border: 1px solid gray;
+            width: 200px;
+            padding: 7px;
+        }
+        
+        input {
+            padding: 10px;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        function keyDown() {
+            if (event.keyCode === 13) {
+                let input = document.getElementById("textInput");
+                if (input.value.trim().length > 0) {
+                    appendRow(input.value.trim());
+                    input.value = '';
+                }
+            }
+        }
+
+        function appendRow(newWord) {
+            let tbody = document.getElementById('myTbody');
+            // tbody의 맨 뒤에 새 행을 하나 생성
+            let newRow = tbody.insertRow(tbody.rows.length);
+            // 새 행에 새 셀 두개를 생성한다.
+            let cell0 = newRow.insertCell(0);
+            let cell1 = newRow.insertCell(1);
+            cell0.style.borderColor = newWord;
+            cell1.style.borderColor = newWord;
+
+            cell0.innerHTML = newWord;
+            cell1.innerHTML = newWord.length;
+        }
+
+        window.onload = function() {
+            let input = document.getElementById("textInput");
+            input.addEventListener("keydown", keyDown);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Text Input Control</h1>
+    <hr> Input
+    <Input id="textInput" size="30">
+    <hr>
+    <table>
+        <thead>
+            <th>단어</th>
+            <th>비고</th>
+        </thead>
+        <tbody id="myTbody">
+        </tbody>
+    </table>
+    <p></p>
+</body>
+
+</html>

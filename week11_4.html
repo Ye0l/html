@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표준 이벤트 모델</title>
+    <style>
+        h2 {
+            border: 3px solid lightskyblue;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        // =======================================================================
+        // 이벤트 속성에 연결할 이벤트 핸들러 정의
+        // =======================================================================
+        function h1MouseDown() {
+            this.innerHTML = '문서객체모델 프로그래밍';
+        }
+
+        function h1MouseUp() {
+            this.innerHTML = 'DOM Programming';
+        }
+
+        function h2MouseOver() {
+            this.style.backgroundColor = 'lightskyblue';
+        }
+
+        function h2MouseOver2() {
+            this.style.borderColor = 'blue';
+        }
+
+        function h2MouseOut() {
+            this.style.backgroundColor = 'White';
+        }
+
+        function h2MouseOut2() {
+            this.style.borderColor = 'lightskyblue';
+        }
+        // =======================================================================
+        window.onload = function() {
+                let h1 = document.querySelector("h1");
+                h1.addEventListener("mousedown", h1MouseDown);
+                h1.addEventListener("mouseup", h1MouseUp);
+                let h2Arr = document.querySelectorAll("h2");
+                for (var h2 of h2Arr) {
+                    h2.addEventListener("mouseover", h2MouseOver);
+                    h2.addEventListener("mouseover", h2MouseOver2);
+                    h2.addEventListener("mouseout", h2MouseOut);
+                    h2.addEventListener("mouseout", h2MouseOut2);
+                }
+            }
+            // =======================================================================
+    </script>
+</head>
+
+<body>
+    <h1>DOM Programming</h1>
+    <hr>
+    <h2>동의과학대학교</h2>
+    <h2>컴퓨터정보과</h2>
+    <h2>ㅁㅁㅁ</h2>
+    <!-- over<->out, enter<->leave -->
+</body>
+
+</html>

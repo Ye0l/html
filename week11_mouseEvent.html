@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouserEventTest</title>
+    <style>
+        div {
+            padding: 40px;
+            width: 70%;
+            border: 1px solid gray;
+        }
+    </style>
+    <script>
+        function divMouseEnter() {
+            this.style.borderRadius = "20px";
+            this.style.backgroundColor = "lightcoral";
+            document.querySelector('p').innerHTML = `<b>${this.id}</b>에 들어갔습니다.<br>` + document.querySelector('p').innerHTML;
+        }
+
+        function divMouseLeave() {
+            this.style.borderRadius = "0px";
+            this.style.backgroundColor = "white";
+            document.querySelector('p').innerHTML = `<b>${this.id}</b>에 들어갔습니다.<br>` + document.querySelector('p').innerHTML;
+        }
+
+        window.onload = function() {
+            let divArr = document.querySelectorAll("div");
+            for (var div of divArr) {
+                div.addEventListener("mouseenter", divMouseEnter);
+                div.addEventListener("mouseleave", divMouseLeave);
+            }
+            document.querySelector('p').addEventListener("click", function() {
+                this.innerHTML = "";
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <h1>MouseEvent: MouserEnter vs MouseOver</h1>
+    <hr>
+    <div id='divA'>
+        div A
+        <div id='divB'>
+            div B
+            <div id='divC'>
+                div C
+            </div>
+        </div>
+    </div>
+    <h2>Enter log</h2>
+    <hr>
+    <p></p>
+</body>
+
+</html>

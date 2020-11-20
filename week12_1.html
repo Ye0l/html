@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouserEventTest</title>
+    <style>
+        div {
+            padding: 40px;
+            width: 70%;
+            border: 1px solid gray;
+            background-color: white;
+        }
+    </style>
+    <script>
+        function divMouseEnter() {
+            this.style.borderRadius = "20px";
+            this.style.backgroundColor = "lightcoral";
+            document.querySelector('p').innerHTML = `Enter <b>${this.id}</b>.<br>` + document.querySelector('p').innerHTML;
+            event.stopPropagation();
+        }
+
+        function divMouseOver() {
+            this.style.backgroundColor = "lightcoral";
+            document.querySelector('p').innerHTML = `Over <b>${this.id}</b>.<br>` + document.querySelector('p').innerHTML;
+            event.stopPropagation();
+        }
+
+        function divMouseLeave() {
+            this.style.borderRadius = "0px";
+            this.style.backgroundColor = "white";
+            document.querySelector('p').innerHTML = `Leave <b>${this.id}</b>.<br>` + document.querySelector('p').innerHTML;
+            event.stopPropagation();
+        }
+
+        function divMouseOut() {
+            this.style.borderRadius = "0px";
+            this.style.backgroundColor = "white";
+            document.querySelector('p').innerHTML = `Out <b>${this.id}</b>.<br>` + document.querySelector('p').innerHTML;
+            event.stopPropagation();
+        }
+
+        window.onload = function() {
+            let divArr = document.querySelectorAll("div");
+            for (var div of divArr) {
+                // div.addEventListener("mouseenter", divMouseEnter);
+                // div.addEventListener("mouseleave", divMouseLeave);
+                div.addEventListener("mouseover", divMouseOver);
+                div.addEventListener("mouseout", divMouseOut);
+            }
+            document.querySelector('p').addEventListener("click", function() {
+                this.innerHTML = "";
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <h1>MouseEvent: MouserEnter vs MouseOver</h1>
+    <hr>
+    <div id='divA'>
+        div A
+        <div id='divB'>
+            div B
+            <div id='divC'>
+                div C
+            </div>
+        </div>
+    </div>
+    <h2>Enter log</h2>
+    <hr>
+    <p></p>
+</body>
+
+</html>

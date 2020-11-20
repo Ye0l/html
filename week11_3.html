@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고전 이벤트 모델</title>
+    <style>
+        h2 {
+            border: 3px solid rgb(34, 123, 255);
+            padding: 10px;
+        }
+    </style>
+    <script>
+        // =======================================================================
+        // 이벤트 속성에 연결할 이벤트 핸들러 정의
+        // =======================================================================
+        function h1MouseDown() {
+            this.innerHTML = '문서객체모델 프로그래밍';
+        }
+
+        function h1MouseUp() {
+            this.innerHTML = 'DOM Programming';
+        }
+
+        function h2MouseOver() {
+            this.style.backgroundColor = 'rgb(34, 123, 255)';
+        }
+
+        function h2MouseOut() {
+            this.style.backgroundColor = 'White';
+        }
+        // =======================================================================
+        window.onload = function() {
+                let h1 = document.querySelector("h1");
+                h1.onmousedown = h1MouseDown;
+                h1.onmouseup = h1MouseUp;
+                let h2Arr = document.querySelectorAll("h2");
+                for (var h2 of h2Arr) {
+                    h2.onmouseover = function() {
+                        this.style.backgroundColor = 'rgb(34,123,255)'
+                    };
+                    h2.onmouseout = h2MouseOut;
+                }
+            }
+            // =======================================================================
+    </script>
+</head>
+
+<body>
+    <h1>DOM Programming</h1>
+    <hr>
+    <h2>동의과학대학교</h2>
+    <h2>컴퓨터정보과</h2>
+    <h2>ㅁㅁㅁ</h2>
+    <!-- over<->out, enter<->leave -->
+</body>
+
+</html>

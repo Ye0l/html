@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.onload = function() {
+            let property = "id";
+            let h1 = document.querySelector("h1");
+            h1.innerHTML = "문서객체모델 프로그래밍";
+            document.querySelector('title').innerHTML = "문서객체모델 프로그래밍";
+
+            alert(h1.getAttribute(property));
+            h1.setAttribute(property, "javascript");
+            alert(h1.id);
+        }
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="subject">DOM Programming</h1>
+    <hr>
+    <h2>
+        동의과학대학교
+    </h2>
+    <h2>
+        컴퓨터정보과
+    </h2>
+</body>
+
+</html>

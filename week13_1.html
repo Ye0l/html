@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Study</title>
+    <script src="jquery-3.5.1.min.js">
+    </script>
+    <script>
+        // ==================================================================
+        function buttonClick() {
+            // 모든 p 객체 숨기기
+            $("p").hide();
+        }
+        // ==================================================================
+        $(document).ready(function() {
+            $("button").click(buttonClick);
+            // document.querySelector("button").addEventListener("click", buttonClick);
+        });
+        // ==================================================================
+    </script>
+</head>
+
+<body>
+    <h1>jQuery 맛보기</h1>
+    <hr>
+    <button>Hide All P</button>
+    <p>동의과학대학교</p>
+    <p>컴퓨터정보과</p>
+    <p>박상열</p>
+</body>
+
+</html>
